@@ -139,7 +139,7 @@ func (set allocSet) filterByTainted(state ClusterState) (untainted, migrate, los
 		}
 
 		if alloc.TerminalStatus() && !shouldReconnect {
-			// Server-terminal allocs, if supportsDisconnectedClient and not reconnect,
+			// Server-terminal allocs, if they shouldn't reconnect,
 			// are probably stopped replacements and should be ignored
 			if alloc.ServerTerminalStatus() {
 				ignore[alloc.ID] = alloc
